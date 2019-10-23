@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'payment'], function() {
+    Route::get('/','CheckoutController@index');
+    Route::post('/charge','CheckoutController@pay');
+});

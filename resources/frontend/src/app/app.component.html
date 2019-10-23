@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}!
+  </h1>
+</div>
+<h2>2Checkout Payment: </h2>
+
+<div class="card">
+  <input name="token" type="hidden" value="" />
+  <div class="input-group">
+    <label>
+      <span>Amount(USD)</span>
+    </label>
+    <input type="text" [(ngModel)]="amount" required />
+  </div>
+  <div class="input-group">
+    <label>
+      <span>Card Number</span>
+    </label>
+    <input type="text" [(ngModel)]="cardNum" autocomplete="off" required />
+  </div>
+  <div class="input-group">
+    <label>
+      <span>Expiration Date (MM/YY)</span>
+    </label>
+    <div>
+      <input name="expMonth" type="text" [(ngModel)]="expMonth" size="2" required />
+      <span> / </span>
+      <input name="expYear" type="text" [(ngModel)]="expYear" size="4" required />    
+    </div>
+  </div>
+  <div class="input-group">
+    <label>
+      <span>CVC</span>
+    </label>
+    <input name="cvv" type="text" [(ngModel)]="cvv" autocomplete="off" required />
+  </div>
+
+  <input [attr.disabled]="processStatus ? '' : null" type="submit" value="Submit Payment" (click)="pay()" />
+</div>
